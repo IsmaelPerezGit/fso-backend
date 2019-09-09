@@ -31,6 +31,14 @@ app.get('/notes', (req, res) => {
     res.json(notes)
 })
 
+app.get('/notes/:id', (req, res) => {
+    const id = +req.params.id;
+    const note = notes.find(note => note.id === id)
+    res.json(note)
+})
+
+
+
 const PORT = 3001;
 app.listen(PORT);
 console.log(`Server listening on port ${PORT}`)
